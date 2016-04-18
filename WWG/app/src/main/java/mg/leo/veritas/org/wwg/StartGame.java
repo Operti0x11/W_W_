@@ -10,29 +10,30 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class StartGame extends Activity {
-	
+
 	MediaPlayer mPlayer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        
+
         setContentView(R.layout.startgame);
-       
-        mPlayer = MediaPlayer.create(this, R.raw.rondo);   	// ���� �б� green�� ���ϸ�
-  	  	mPlayer.setVolume(0.7f, 0.7f); 			      		// ���� ����
-  	  	mPlayer.setLooping(true);              				// �ݺ� ����
+
+        mPlayer = MediaPlayer.create(this, R.raw.rondo);   	// 파일 읽기 green(rondo?)은 파일명
+  	  	mPlayer.setVolume(0.7f, 0.7f); 			      		// 볼륨 설정
+  	  	mPlayer.setLooping(true);              				// 반복 연주
  	  	mPlayer.start();
-                
+
         findViewById(R.id.imgStart).setOnClickListener(OnMyClick);
-        findViewById(R.id.imgQuit).setOnClickListener(OnMyClick);
+	    findViewById(R.id.imgQuit).setOnClickListener(OnMyClick);
         findViewById(R.id.imgOpts).setOnClickListener(OnMyClick);
         findViewById(R.id.imgHelp).setOnClickListener(OnMyClick);
         findViewById(R.id.imgAbout).setOnClickListener(OnMyClick);
+
     }
 
     //---------------------------------
@@ -59,9 +60,10 @@ public class StartGame extends Activity {
 				break;
 			case R.id.imgAbout:
 				startActivity(new Intent(StartGame.this, About.class));
+
 			}
 		}
     };
-    
+
 }
 
