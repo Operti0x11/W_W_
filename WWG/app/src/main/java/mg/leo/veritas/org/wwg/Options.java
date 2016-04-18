@@ -27,7 +27,7 @@ public class Options extends Activity {
 
         setContentView(R.layout.options);
 
-        // ������ư �ʱ� ������ Easy
+        // 라디오 버튼 초기설정은 Easy
         rGroup1 = (RadioGroup) findViewById(R.id.RadioGroup01);
         rGroup1.check(R.id.RButton01);
         
@@ -77,16 +77,16 @@ public class Options extends Activity {
     };
     
     //-----------------------------------
-    // ��������  ���� ������ ����
+    // 설정값을 전역 변수에 저장
     //-----------------------------------
 	private void SetGlovalVars() {
-		// ���õ� RadioButton ã��
+		// 선택된 Radio Button 찾기
 		int id = rGroup1.getCheckedRadioButtonId();
 		
 		RadioButton tmpRadio = (RadioButton) findViewById(id);
 		int difficult = Integer.parseInt(tmpRadio.getTag().toString());
 
-		// ���� ������ ����
+		// 전역 변수에 저장
 		((GlobalVars) getApplicationContext()).setDifficult(difficult);
 		((GlobalVars) getApplicationContext()).setIsMusic(onOff1);
 		((GlobalVars) getApplicationContext()).setIsSound(onOff2);
